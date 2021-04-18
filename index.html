@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabulator Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./css/tabulator_bootstrap4.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/moment.min.js" defer></script>
+    <script src="./js/tabulator.min.js" defer></script>
+    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js" defer></script>
+
+    <script src="./js/table.js" defer></script>
+</head>
+<body>
+<h1>Tabulator Working Build</h1>
+<div>
+    <button id="history-undo">Undo Edit</button>
+    <button id="history-redo">Redo Edit</button>
+    <button id="select-visible">Select Visible</button>
+    <button id="select-page">Select All</button>
+    <button id="deselect-all">Deselect All</button>
+    
+    <span id="select-stats"></span>
+</div>
+<br>
+<div>
+    <button id="resetColumns">Reset Columns</button>
+    <button id="resetSort">Reset Sort</button>
+    <button id="resetFilter">Reset Filter</button>
+    <button id="resetPage">Reset Page</button>
+    &nbsp;
+    <button id="resetFull">Full Reset</button>
+</div>
+<br>
+<div>
+    <button id="load-json">Load JSON</button>
+    <button id="download-csv">Download CSV</button>
+    <button id="download-json">Download JSON</button>
+    <button id="download-xlsx">Download XLSX</button>
+    <button id="download-pdf">Download PDF</button>
+    <button id="download-html">Download HTML</button>
+    <button id="print-table">Print Table</button>
+</div>
+<br>
+<div>
+    <select id="filter-field">
+        <option></option>
+        <option value="id">id</option>
+        <option value="Company">Company</option>
+        <option value="Status">Status</option>
+        <option value="Prefix">Prefix</option>
+        <option value="FirstName">FirstName</option>
+        <option value="LastName">Last Name</option>
+        <option value="City">City</option>
+    </select>
+
+    <select id="filter-type">
+        <option value="=">=</option>
+        <option value="<"><</option>
+        <option value="<="><=</option>
+        <option value=">">></option>
+        <option value=">=">>=</option>
+        <option value="!=">!=</option>
+        <option value="like">like</option>
+    </select>
+
+    <input id="filter-value" type="text" placeholder="value to filter">
+    <button id="filter-clear">Clear Filters</button>
+</div>
+<div id="example-table"></div>
+<p></p>
+<br>
+<div id="tabulator"></div>
+<p></p>
+<br>
+<div id="scriptor"></div>
+</body>
+</html>
