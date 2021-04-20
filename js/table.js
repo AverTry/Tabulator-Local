@@ -446,6 +446,7 @@ var table = new Tabulator("#example-table", {
         })
 
         var subTable3 = new Tabulator(table3El, {
+            headerVisible:false, //hide header
             data:row.getData().Info,
             rowFormatter:function(row){ 
 
