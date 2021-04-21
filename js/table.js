@@ -187,9 +187,7 @@ document.getElementById("filter-clear").addEventListener("click", function() {
 });
 
 var table = new Tabulator("#example-table", {
-
-    // height: 'calc(100vh - 193px)',
-    height: 700,
+    height: 'calc(100vh - 280px)',
     layout:"fitDataTable",
     // responsiveLayout:"collapse",
     movableColumns:true,
