@@ -297,12 +297,12 @@ var table = new Tabulator("#example-table", {
             headerMenu:headerMenu, //add a menu to this column header
             columns:[
                 {title:"Created On", field:"AccountCreated", headerSortTristate:true, width:130, visible:true, 
+                    formatter:"datetime", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" },
                     sorter:"date", sorterParams:{ format:"YYYY-MM-DD", alignEmptyValues:"top" }, 
-                    formatter:"date", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" }
                 },
                 {title:"Edited On", field:"LastUpdated", headerSortTristate:true, width:130, visible:true, editor:dateEditor,  
                     sorter:"date", sorterParams:{ format:"YYYY-MM-DD", alignEmptyValues:"top" }, 
-                    formatter:"date", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" }, 
+                    formatter:"datetime", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" }, 
                     editable:false, cellDblClick:function(e, cell){cell.edit(true)}
                 },
                 {title:"Status", field:"Status", width:120, visible:true, editor:"select", headerSortTristate:true, 
@@ -356,14 +356,14 @@ var table = new Tabulator("#example-table", {
             title:"Meetings",
             headerMenu:headerMenu, //add a menu to this column header
             columns:[
-                {title:"Last Meeting", field:"LastMeeting", sorter:"date", headerSortTristate:true, width:150, visible:true, editor:dateEditor,  
+                {title:"Last Meeting", field:"LastMeeting", headerSortTristate:true, width:150, visible:true, editor:dateEditor,  
                     sorter:"date", sorterParams:{ format:"YYYY-MM-DD", alignEmptyValues:"top" }, 
-                    formatter:"date", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" }, 
+                    formatter:"datetime", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" }, 
                     editable:false, cellDblClick:function(e, cell){cell.edit(true)}
                 },
-                {title:"Next Meeting", field:"NextMeeting", sorter:"date", headerSortTristate:true, width:150, visible:true, editor:dateEditor,  
+                {title:"Next Meeting", field:"NextMeeting", headerSortTristate:true, width:150, visible:true, editor:dateEditor,  
                     sorter:"date", sorterParams:{ format:"YYYY-MM-DD", alignEmptyValues:"top" }, 
-                    formatter:"date", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" }, 
+                    formatter:"datetime", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" }, 
                     editable:false, cellDblClick:function(e, cell){cell.edit(true)}
                 },
             ],
