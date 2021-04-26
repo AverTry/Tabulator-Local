@@ -17,3 +17,7 @@ First Four Columns are Frozen.
 ### Dropdown Form
 
 ![](image/README/1618750797944.png)
+
+Visit this link to try it out:
+
+[https://avertry.github.io/Tabulator-Local/](https://avertry.github.io/Tabulator-Local/)

@@ -296,7 +296,7 @@ var table = new Tabulator("#example-table", {
             title:"Status",
             headerMenu:headerMenu, //add a menu to this column header
             columns:[
-                {title:"Created On", field:"AccountCreated", headerSortTristate:true, width:130, visible:true, 
+                {title:"Created On", field:"AccountCreated", headerFilter:"input", headerSortTristate:true, width:130, visible:true, 
                     formatter:"datetime", formatterParams:{ inputFormat:"YYYY-MM-DD HH:ii", outputFormat:"DD/MM/YYYY", invalidPlaceholder:"(invalid date)" },
                     sorter:"date", sorterParams:{ format:"YYYY-MM-DD", alignEmptyValues:"top" }, 
                 },
