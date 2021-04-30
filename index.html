@@ -71,8 +71,37 @@
     </select>
 
     <input id="filter-value" type="text" placeholder="value to filter">
-    <button id="filter-clear">Clear Filters</button>
+    <div class="dropdown">
+        <span>?</span>
+        <div class="dropdown-content">
+            <h3>Tabulator comes with a number of filter comparison types:</h3>
+            <ul>
+                <li> = - Displays only rows with data that is the same as the filter</li>
+                <li> < - Displays rows with a value less than the filter value</li>
+                <li> <= - Displays rows with a value less than or equal to the filter value</li>
+                <li> > - Displays rows with a value greater than the filter value</li>
+                <li> >= - Displays rows with a value greater than or equal to the filter value</li>
+                <li> != - Displays rows with a value that is not equal to the filter value</li>
+                <li> like - Displays any rows with data that contains the specified string anywhere in the specified field. (case insensitive)</li>
+            </ul>
+        </div>
+    </div>
+    &ensp;    
+    <button id="filter-clear">Clear All Filters</button> 
+    &emsp;
+    <input id="searchAll" type="text" placeholder="Search All Filter">
+    <div class="dropdown">
+        <span>?</span>
+        <div class="dropdown-content">
+            <h3>Further Help to tighten your Search Criteria :</h3>
+            <ul>
+                <li> ^pen - Displays only rows where words Start with "pen"</li>
+                <li> ing$ - Displays only rows where words End with "ing"</li>
+            </ul>
+        </div>
+    </div>
 </div>
+
 <div id="example-table"></div>
 </body>
 </html>

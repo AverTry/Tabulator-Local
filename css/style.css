@@ -1,3 +1,23 @@
+  .dropdown {
+      margin-left: 10px;
+      position: relative;
+      display: inline-block;
+  }
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 550px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+
   .hide {
     display: none;
   }
@@ -33,12 +53,12 @@
 
   h1,
   h3,
-  input {
-    padding: 0;
-    margin: 0;
-    outline: none;
+  li,
+  span,
+  input,
+  select,
+  .dropdown {
     font-family: Roboto, Arial, sans-serif;
-    font-size: 16px;
     color: #6d8289;
   }
 
@@ -91,7 +111,7 @@
     height: 36px;
     padding-left: 10px;
     margin: 0 0 12px -5px;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px;
     border: solid 1px #cbc9c9;
     box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
     background: #fff;
@@ -171,6 +191,7 @@
     font-size: 14px;
     font-weight: 600;
     color: #6d8289 !important;
+    box-shadow: 1px 2px 5px rgb(0 0 0 / 9%);
   }
 
   button.wide {
@@ -179,6 +200,10 @@
 
   button:hover {
     background: #ccd8ce !important;
+  }
+
+  button:active {
+    box-shadow: none;
   }
 
   .grade-type div {

@@ -6,18 +6,14 @@ let Query
 //define row context menu contents
 var rowMenu = [
     {
-        label:"<i class='fas fa-user'></i> Null",
+        label:"<i class='fas fa-user'></i> Row number",
         action:function(e, row){
-            // column.move("id", true)
-            // column.move("id", true)
-            // console.log('%c%s', 'color: #00e600', cell.column.n);
-            // table.moveColumn("Client", "Static", true)
+            console.log('%c%s', 'color: #00e600', row.getPosition(true) + 1);
         }
     },
     {
         label:"<i class='fas fa-check-square'></i> Select Row",
         action:function(e, row){
-            // console.log(row.getPosition(true))
             row.select()
         }
     },
@@ -91,10 +87,6 @@ var headerMenu = function(){
 
 //Create Date Editor
 var dateEditor = function(cell, onRendered, success, cancel){
-    //cell - the cell component for the editable cell
-    //onRendered - function to call when the editor has been rendered
-    //success - function to call to pass the successfuly updated value to Tabulator
-    //cancel - function to call to abort the edit and return to a normal cell
 
     //create and style input
     var cellValue = moment(cell.getValue(), "YYYY-MM-DD HH:ii").format("YYYY-MM-DD"),
@@ -183,13 +175,14 @@ document.getElementById("filter-clear").addEventListener("click", function() {
     typeEl.value = "=";
     valueEl.value = "";
 
-    table.clearFilter();
+    table.clearFilter(true);
+    document.getElementById("searchAll").value = ''
 });
 
 var table = new Tabulator("#example-table", {
     height: 'calc(100vh - 280px)',
     layout:"fitDataTable",
-    // responsiveLayout:"collapse",
+    // responsiveLayout:"collapse", // blocks editing wrapped fields
     movableColumns:true,
     movableRows:false,
     selectable:true,
@@ -200,16 +193,6 @@ var table = new Tabulator("#example-table", {
     history:true,
     pagination:"local",
     ajaxURL: './Tabulator-Data.json',
-    // ajaxURL:`http://localhost:3000/api?find=${Query}`,
-    // ajaxFiltering:false,
-    // ajaxSorting:false,
-    // ajaxParams:{find:`{ "${queryKey}": ${queryVal} }`}, // fail - number is not string
-    // ajaxConfig:"POST",
-    // ajaxParams:{token:"ABC123"}, //set any standard parameters to pass with the request
-    // paginationInitialPage:8, //optional parameter to set the initial page to load  
-    // paginationDataSent:{
-    //     "size": "limit"
-    // } ,
     printAsHtml:true, //enable html table printing
     printStyled:true, //copy Tabulator styling to HTML table
     printRowRange:"selected", //change default selector to selected - "Active" is default for filtered
@@ -506,8 +489,7 @@ var table = new Tabulator("#example-table", {
                 rowDiv.innerHTML = formTemplate;
                 element.append(rowDiv);                
             }
-        })
-        
+        })        
     },   
     dataLoaded:function(data){
         data.forEach(function(row){
@@ -611,8 +593,18 @@ document.getElementById("download-html").addEventListener("click", function(){
 //print button
 document.getElementById("print-table").addEventListener("click", function(){
     table.print(false, true)
-
 })
 
-// -------------------------------------------------------------------------------------------------------------------------
+//search
+document.getElementById("searchAll").addEventListener("keyup", function(event){
+    table.setFilter(search, {val:this.value})
+})
 
+//custom partial search function
+function search(data, params){
+    let patten = new RegExp(params.val, 'ig'), query = false
+    for(let key in data) { 
+        if(patten.test(data[key])) query = true 
+    }
+    return query;
+}

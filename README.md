@@ -21,3 +21,5 @@ First Four Columns are Frozen.
 Visit this link to try it out:
 
 [https://avertry.github.io/Tabulator-Local/](https://avertry.github.io/Tabulator-Local/)
+
+See Update Log for recent changes.
